@@ -1,61 +1,46 @@
-import { tolkienFan, starWarsFan, marvelFan, blizzardFan, circleArea2 } from "./cap2";
+import {
+    tolkienFan,
+    starWarsFan,
+    marvelFan,
+    blizzardFan,
+    circleArea2
+} from './cap2.js';
 
-describe('Let and Const', () => {
-    let originalConsoleLog;
+const spy = jest.spyOn(console, 'log');
 
-    beforeEach(() => {
-        // Salva a função original do console.log
-        originalConsoleLog = console.log;
-        // Substitui o console.log por uma função vazia
-        console.log = jest.fn();
-    });
-
-    afterEach(() => {
-        // Restaura a função original do console.log
-        console.log = originalConsoleLog;
-    });
-
-    test('should call console.log with "Lord of the Rings"', () => {
+describe('tolkienFan', () => {
+    it('should log "Lord of the Rings"', () => {
         tolkienFan();
-        expect(console.log).toHaveBeenCalledWith("Lord of the Rings");
-    });
-
-    test('should call console.log with "Star wars"', () => {
-        starWarsFan();
-        expect(console.log).toHaveBeenCalledWith("Star Wars");
-    });
-
-    test('should call console.log with "Avengers"', () => {
-        marvelFan();
-        expect(console.log).toHaveBeenCalledWith("Avengers");
-    });
-
-
-    test('should call console.log with "Blizzard Fans"', () => {
-        blizzardFan();
-        expect(console.log).toHaveBeenCalledWith("Before if: Warcraft");
-        expect(console.log).toHaveBeenCalledWith("Inside if: For the Horde");
-        expect(console.log).toHaveBeenCalledWith("After if: For the Alliance!");
+        expect(spy).toHaveBeenCalledWith('Lord of the Rings');
     });
 });
 
-describe('Arrow Functions', () => {
-    let originalConsoleLog;
-
-    beforeEach(() => {
-        // Salva a função original do console.log
-        originalConsoleLog = console.log;
-        // Substitui o console.log por uma função vazia
-        console.log = jest.fn();
+describe('starWarsFan', () => {
+    it('should log "Star Wars"', () => {
+        starWarsFan();
+        expect(spy).toHaveBeenCalledWith('Star Wars');
     });
+});
 
-    afterEach(() => {
-        // Restaura a função original do console.log
-        console.log = originalConsoleLog;
+describe('marvelFan', () => {
+    it('should log "Avengers"', () => {
+        marvelFan();
+        expect(spy).toHaveBeenCalledWith('Avengers');
     });
+});
 
-    test('should call console.log with valor of circleArea2"', () => {
+describe('blizzardFan', () => {
+    it('should log correct phrases', () => {
+        blizzardFan();
+        expect(spy).toHaveBeenCalledWith('Before if: Warcraft');
+        expect(spy).toHaveBeenCalledWith('Inside if: For the Horde');
+        expect(spy).toHaveBeenCalledWith('After if: For the Alliance!');
+    });
+});
+
+describe('circleArea2', () => {
+    it('should calculate and log the area of a circle', () => {
         circleArea2(2);
-        expect(console.log).toHaveBeenCalledWith(12.56);
+        expect(spy).toHaveBeenCalledWith(12.56);
     });
 });
