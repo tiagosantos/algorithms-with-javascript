@@ -27,3 +27,8 @@ export function blizzardFan() {
     phrase = 'For the Alliance!';
     console.log("After if: " + phrase);
 }
+
+export function circleArea2(area) {
+    const circleArea2 = r => 3.14 * r * r;
+    console.log(circleArea2(area));
+}

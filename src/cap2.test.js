@@ -1,6 +1,6 @@
-import { tolkienFan, starWarsFan, marvelFan, blizzardFan } from "./cap2";
+import { tolkienFan, starWarsFan, marvelFan, blizzardFan, circleArea2 } from "./cap2";
 
-describe('practiceTest function', () => {
+describe('Let and Const', () => {
     let originalConsoleLog;
 
     beforeEach(() => {
@@ -36,5 +36,26 @@ describe('practiceTest function', () => {
         expect(console.log).toHaveBeenCalledWith("Before if: Warcraft");
         expect(console.log).toHaveBeenCalledWith("Inside if: For the Horde");
         expect(console.log).toHaveBeenCalledWith("After if: For the Alliance!");
+    });
+});
+
+describe('Arrow Functions', () => {
+    let originalConsoleLog;
+
+    beforeEach(() => {
+        // Salva a função original do console.log
+        originalConsoleLog = console.log;
+        // Substitui o console.log por uma função vazia
+        console.log = jest.fn();
+    });
+
+    afterEach(() => {
+        // Restaura a função original do console.log
+        console.log = originalConsoleLog;
+    });
+
+    test('should call console.log with valor of circleArea2"', () => {
+        circleArea2(2);
+        expect(console.log).toHaveBeenCalledWith(12.56);
     });
 });
