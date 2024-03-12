@@ -1,1 +1,5 @@
-console.log("Hello World!sssss");
+function practiceTest() {
+    console.log("Hello World!");
+}
+
+export default practiceTest;
